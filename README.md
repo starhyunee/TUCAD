@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Disentangling Latent Distortions: A Transformer U-Net Diffusion Model for Robust Time Series Anomaly Detection
 
 This repository provides the official implementation of TUCAD (Transformer U-Net Cross-Attentive Diffusion), a diffusion-based model designed to improve robustness against latent distortions and enhance anomaly detection performance in multivariate time series.
@@ -51,3 +52,6 @@ python train.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --st
 
 2. Test
 python test.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --overlap True --batch_size 64 --epochs 10 --T 500
+=======
+# TUCAD
+>>>>>>> 08733721e47179ea50de89aeffdaf799cba062bc
