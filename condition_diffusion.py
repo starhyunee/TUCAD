@@ -6,7 +6,7 @@ from src.loss_functions import *
 import src.denoiser_models as denoiser_models
 
 from src.condition_denoiser_models import AttentionPool,mean_std
-
+## why why why
 
 
 # === Diffusion Model === #
