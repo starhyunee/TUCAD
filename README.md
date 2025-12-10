@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# TUCAD
 # Disentangling Latent Distortions: A Transformer U-Net Diffusion Model for Robust Time Series Anomaly Detection
 
 This repository provides the official implementation of TUCAD (Transformer U-Net Cross-Attentive Diffusion), a diffusion-based model designed to improve robustness against latent distortions and enhance anomaly detection performance in multivariate time series.
@@ -21,17 +21,18 @@ TUCAD is designed to:
 project/
 ├── data/
 ├── src/
-│ ├── condition_denoiser_models
-│ ├── denoiser_models
- |  ├── loss_functions
- |  ├── transformers
- |  ├── dataset_utils
- |  └── utils_eval
-├── train.py # main training script
-├── test.py # main training script
-├── run.sh # training/testing launcher
+│   ├── condition_denoiser_models/
+│   ├── denoiser_models/
+│   ├── loss_functions/
+│   ├── transformers/
+│   ├── dataset_utils/
+│   └── utils_eval/
+├── train.py
+├── test.py
+├── run.sh
 ├── requirements.txt
 └── README.md
+
 
 ### Dataset
 The model is evaluated on six benchmark datasets:
@@ -47,11 +48,10 @@ Due to the 30 MB submission size limit, we contain dataset download links.
 
 
 ## Get Started
-1. Training 
+1. Training \
 python train.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --stride 1 --batch_size 64 --epochs 10 --T 500
 
-2. Test
+2. Test \
 python test.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --overlap True --batch_size 64 --epochs 10 --T 500
 =======
-# TUCAD
->>>>>>> 08733721e47179ea50de89aeffdaf799cba062bc
+
