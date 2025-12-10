@@ -18,20 +18,20 @@ TUCAD is designed to:
 
 ## Description
 ### Code
-project/
-├── data/
-├── src/
-│   ├── condition_denoiser_models/
-│   ├── denoiser_models/
-│   ├── loss_functions/
-│   ├── transformers/
-│   ├── dataset_utils/
-│   └── utils_eval/
-├── train.py
-├── test.py
-├── run.sh
-├── requirements.txt
-└── README.md
+project\
+├── data\
+├── src\
+│   ├── condition_denoiser_models\
+│   ├── denoiser_models\
+│   ├── loss_functions\
+│   ├── transformers\
+│   ├── dataset_utils\
+│   └── utils_eval\
+├── train.p\
+├── test.p\
+├── run.s\
+├── requirements.tx\
+└── README.m\
 
 
 ### Dataset
