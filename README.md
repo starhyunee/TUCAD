@@ -18,21 +18,22 @@ TUCAD is designed to:
 
 ## 2. Description
 ### 1) Code
-project\
-├── src\
-│   ├── condition_denoiser_models\ # Diffusion denoising networks (main)
-│   ├── denoiser_models\ # Diffusion denoising networks (sub)
-│   ├── loss_functions\
-│   ├── transformers\
-│   ├── dataset_utils\ # Sliding window
-│   └── utils_eval\ # Evaluation metrics 
-├── train.py\ # Training script
-├── test.py\ # Inference 
-├── condition_diffusion.py\ # diffusion process (main)
-├── diffusion.py\ # diffusion process (sub)
-├── run.sh\ 
-├── requirements.txt\
-└── README.md\
+project/
+├── src/
+│   ├── condition_denoiser_models/   # Diffusion denoising networks (main)
+│   ├── denoiser_models/             # Diffusion denoising networks (sub)
+│   ├── loss_functions/
+│   ├── transformers/
+│   ├── dataset_utils/               # Sliding window utilities
+│   └── utils_eval/                  # Evaluation metrics
+├── train.py                         # Training script
+├── test.py                          # Inference script
+├── condition_diffusion.py           # Diffusion process (main)
+├── diffusion.py                     # Diffusion process (sub)
+├── run.sh
+├── requirements.txt
+└── README.md
+
 
 
 ### 2) Dataset
@@ -44,7 +45,7 @@ The model is evaluated on six benchmark datasets:
 - NIPS-TS-SWAN
 - SWaT : https://itrust.sutd.edu.sg/itrust-labs_datasets/
 
-\
+
 - Most of the above repositories provide raw or partially processed versions of the datasets.
 For convenience and reproducibility, we provide the exact preprocessed versions used in our experiments 
 via the dataset_links.txt file included with this submission.
