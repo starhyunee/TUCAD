@@ -18,23 +18,23 @@ TUCAD is designed to:
 
 ## 2. Description
 ### 1) Code
-'''txt
 project/
 ├── src/
-│   ├── condition_denoiser_models/   # Diffusion denoising networks (main)
-│   ├── denoiser_models/             # Diffusion denoising networks (sub)
+│   ├── condition_denoiser_models/      # Diffusion denoising networks (main)
+│   ├── denoiser_models/                # Diffusion denoising networks (sub)
 │   ├── loss_functions/
 │   ├── transformers/
-│   ├── dataset_utils/               # Sliding window utilities
-│   └── utils_eval/                  # Evaluation metrics
-├── train.py                         # Training script
-├── test.py                          # Inference script
-├── condition_diffusion.py           # Diffusion process (main)
-├── diffusion.py                     # Diffusion process (sub)
+│   ├── dataset_utils/                  # Sliding window utilities
+│   └── utils_eval/                     # Evaluation metrics
+├── train.py                            # Training script
+├── test.py                             # Inference script
+├── condition_diffusion.py              # Diffusion process (main)
+├── diffusion.py                        # Diffusion process (sub)
 ├── run.sh
 ├── requirements.txt
 └── README.md
-'''
+
+
 
 ### 2) Dataset
 The model is evaluated on six benchmark datasets:
