@@ -18,6 +18,7 @@ TUCAD is designed to:
 
 ## 2. Description
 ### 1) Code
+'''txt
 project/
 ├── src/
 │   ├── condition_denoiser_models/   # Diffusion denoising networks (main)
@@ -33,8 +34,7 @@ project/
 ├── run.sh
 ├── requirements.txt
 └── README.md
-
-
+'''
 
 ### 2) Dataset
 The model is evaluated on six benchmark datasets:
