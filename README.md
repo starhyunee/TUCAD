@@ -72,7 +72,7 @@ pip install -r requirements.txt
 - Memory : 64GB RAM
 
 ## 5. Methodology Summary
-###TUCAD follows a diffusion-based reconstruction pipeline:
+### TUCAD follows a diffusion-based reconstruction pipeline:
 - Sliding-window preprocessing is applied to construct fixed-length input sequences.
 - A forward diffusion process gradually adds Gaussian noise over T steps.
 - The Transformer U-Net denoiser with cross-attention predicts either noise.
