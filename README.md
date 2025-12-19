@@ -39,27 +39,25 @@ project\
 The model is evaluated on six benchmark datasets:
 - PSM : https://github.com/eBay/RANSynCoders.git
 - SMD : https://github.com/NetManAIOps/OmniAnomaly.git
-https://www.dropbox.com/s/x53ph5cru62kv0f/ServerMachineDataset.tar.gz?dl=1
 - MSL : https://github.com/khundman/telemanom.git
-https://www.kaggle.com/datasets/patrickfleith/nasa-anomaly-detection-dataset-smap-msl
 - SMAP : https://github.com/khundman/telemanom.git
-https://smap.jpl.nasa.gov/data/
 - NIPS-TS-SWAN
 - SWaT : https://itrust.sutd.edu.sg/itrust-labs_datasets/
 
-Most of the above repositories provide raw or partially processed versions of the datasets.
+\
+- Most of the above repositories provide raw or partially processed versions of the datasets.
 For convenience and reproducibility, we provide the exact preprocessed versions used in our experiments 
 via the dataset_links.txt file included with this submission.
 
-Regarding NIPS-TS-SWAN, the dataset is commonly referenced in time-series anomaly detection benchmarks, 
+- Regarding NIPS-TS-SWAN, the dataset is commonly referenced in time-series anomaly detection benchmarks, 
 but an official centralized download link has not been published. 
 Instead, the dataset is typically accessed through benchmark repositories or scripts provided by related research projects. 
 Therefore, we include the processed version directly in our dataset links for reproducibility.
----
+
 
 ## 3. Requirements
 Install dependencies with: \
-pip install -r requirements.txt \
+pip install -r requirements.txt 
 
 ### 1) Hardware recommendations:
 - NVIDIA GPU (12GB+ recommended)
@@ -73,14 +71,10 @@ pip install -r requirements.txt \
 
 
 ## 5. Get Started
-### 1) Training \
+### 1) Training 
 python train.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --stride 1 --batch_size 64 --epochs 10 --T 500
 
-### 2) Test \
+### 2) Test 
 python test.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --overlap True --batch_size 64 --epochs 10 --T 500
 
-
-
-
-=======
 
