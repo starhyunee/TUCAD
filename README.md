@@ -19,6 +19,7 @@ TUCAD is designed to:
 ## 2. Description
 ### 1) Code
 project\
+├── data\
 ├── src\
 │   ├── condition_denoiser_models      # Diffusion denoising networks (main)\
 │   ├── denoiser_models                # Diffusion denoising networks (sub)\
@@ -70,8 +71,17 @@ pip install -r requirements.txt
 - GPU : NVIDIA RTX 3090 TURBO D6X 24GB
 - Memory : 64GB RAM
 
+## 5. Methodology Summary
+###TUCAD follows a diffusion-based reconstruction pipeline:
+- Sliding-window preprocessing is applied to construct fixed-length input sequences.
+- A forward diffusion process gradually adds Gaussian noise over T steps.
+- The Transformer U-Net denoiser with cross-attention predicts either noise.
+- The reverse diffusion process reconstructs clean representations.
+- Reconstruction errors are computed for each timestamp.
+- data-driven thresholding is used to determine anomalous timestamps.
 
-## 5. Get Started
+
+## 6. Get Started
 ### 1) Training 
 python train.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --stride 1 --batch_size 64 --epochs 10 --T 500
 
