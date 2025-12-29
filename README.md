@@ -37,8 +37,8 @@ project\
 │   └── utils_eval                     # Evaluation metrics\
 ├── train.py                            # Training script\
 ├── test.py                             # Inference script\
-├── condition_diffusion.py              # Diffusion process (main)\
-├── diffusion.py                        # Diffusion process (sub)\
+├── condition_diffusion.py              # Main Diffusion process \
+├── diffusion.py                        # sub Diffusion process \
 ├── run.sh\
 ├── requirements.txt\
 └── README.md
@@ -83,23 +83,23 @@ Install dependencies with: \
 pip install -r requirements.txt 
 
 ### 3) Training 
-python train.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --stride 1 --batch_size 64 --epochs 10 --T 500
+python train.py --model_name {Denoiser_name} --dataset {dataset} --window_size 20 --stride 1 --batch_size 64 --epochs 10 --T 500
 
 ### 4) Test 
-python test.py --model_name {Denoiser_name} --dataset SMD --window_size 20 --overlap True --batch_size 64 --epochs 10 --T 500
+python test.py --model_name {Denoiser_name} --dataset {dataset} --window_size 20 --overlap True --batch_size 64 --epochs 10 --T 500
 
 ----
 
 ## 4. Requirements
 
 ### 1) Libraries
-torch>=1.12
-torchvision
-numpy~=1.23.2
-pandas~=1.5.1
-scikit-learn~=1.1.2
-tqdm~=4.64.1
-tensorboardx~=2.5.1
+torch>=1.12 \
+torchvision\
+numpy~=1.23.2\
+pandas~=1.5.1\
+scikit-learn~=1.1.2\
+tqdm~=4.64.1\
+tensorboardx~=2.5.1\
 
 ### 2) Hardware recommendations:
 - NVIDIA GPU (12GB+ recommended)
