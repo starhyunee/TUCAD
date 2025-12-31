@@ -7,7 +7,7 @@ from diffusion import DiffusionTimeSeriesModel
 #from diffusion import DiffusionTimeSeriesModel
 from sklearn.preprocessing import StandardScaler
 from src.dataset_utils import create_sliding_windows
-
+import os
 from tqdm import tqdm
 from src.utils_eval import compute_metrics, apply_point_adjustment, eval_func
 import argparse
@@ -16,8 +16,8 @@ import argparse
 
 def test(args):
 
-    train_data = np.load(f"./data/{args.dataset}_sub/minmax/train 1-1.npy")
-    test_data = np.load(f"./data/{args.dataset}_sub/minmax/test 1-1.npy")
+    train_data = np.load(f"./data/final_dataset/{args.dataset}_train.npy")
+    test_data = np.load(f"./data/final_dataset/{args.dataset}_test.npy")
     scaler = StandardScaler()
     scaler.fit(train_data)
 
@@ -64,14 +64,10 @@ def test(args):
     with torch.no_grad():
         train_scores, train_input, train_reconstruction,_,_ = model.compute_anomaly_scores_batched(train_windows,batch_size, overlap =overlap)
         train_scores = train_scores.numpy()
-        np.save(f"./results/ablation/{dataset}/train_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", train_scores)
-        # threshold1 = torch.quantile(train_scores, 0.999).item()
-        # threshold2 = torch.quantile(train_scores, 0.995).item()
-        # threshold3 = torch.quantile(train_scores, 0.99).item()
-        # print(f"Threshold (99.9th percentile): {threshold1:.3f}")
-        # print(f"Threshold (99.5th percentile): {threshold2:.3f}")
-        # print(f"Threshold (99th percentile): {threshold3:.3f}")
-        
+        save_dir = f"./{dataset}"
+        os.makedirs(save_dir, exist_ok=True)
+
+        np.save(f"{save_dir}/train_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy",train_scores)        
 
         # test score
         print(f"{dataset} Calculating Anomaly Score!!!")
@@ -84,9 +80,9 @@ def test(args):
         test_attn2_all  = test_attn2_all.numpy()
 
         print(f"{dataset} Test Finish!!!")
-        np.save(f"./results/{dataset}/test_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", train_scores)
-        np.save(f"./results/{dataset}/test_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", test_scores)
-        np.save(f"./results/{dataset}/input_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", input)
+        np.save(f"./{dataset}/test_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", train_scores)
+        np.save(f"./{dataset}/test_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", test_scores)
+        np.save(f"./{dataset}/input_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy", input)
 
         print(f"Test anomaly scores saved.")
         eval_func(dataset, window_size, batch_size, epoch, T, denoiser_name)

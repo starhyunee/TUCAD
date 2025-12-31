@@ -12,7 +12,7 @@ import argparse
 
 def train(args):
     print(f"Training with model: {args.model_name}")
-    traindata = np.load(f"./data/{args.dataset}_sub/minmax/train 1-1.npy")
+    traindata = np.load(f"./data/final_dataset/{args.dataset}_train.npy")
     scaler = StandardScaler()
     traindata_scaled = scaler.fit_transform(traindata) 
     train_tensor = torch.tensor(traindata_scaled, dtype=torch.float32)
@@ -61,7 +61,7 @@ def train(args):
         print(f"[Epoch {e+1}] Loss: {epoch_loss:.6f}")
 
     print(f"{args.dataset} Train Finish!!!")
-    save_path = f"./checkpoints/{dataset}/model_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}_minmax.pth"
+    save_path = f"./checkpoints/{dataset}/model_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.pth"
     torch.save(model.state_dict(), save_path)
     print(f"Model saved to {save_path}")
 

@@ -47,26 +47,22 @@ def eval_func(dataset, window_size, batch_size, epoch, T, denoiser_name):
     test_score = test_score.reshape(-1)
     train_score= np.load(f'./{dataset}/train_scores_w{window_size}_b{batch_size}_e{epoch}_t{T}_{denoiser_name}.npy')
     train_score= train_score.reshape(-1)
-    label= np.load(f'./{dataset}/label.npy')
+    label= np.load(f"./data/final_dataset/{args.dataset}_test_label.npy")
+    
     label = label[:len(test_score)]
 
     print(test_score.shape)
     print(label.shape)
     if label.ndim > 1:
         label = label[:, 0]
-    # anom_ratio_01 = anomaly_rate_01[dataset]
-    # anom_ratio_05 = anomaly_rate_05[dataset]
-    # anom_ratio_1 = anomaly_rate_1[dataset]
+
     thresh_01 = np.percentile(train_score, 100 - anomaly_ratio_01)
-    #thresh_05 = np.percentile(train_score, 100 - anomaly_ratio_05)
     thresh_1 = np.percentile(train_score, 100 - anomaly_ratio_1)
     print(f"Threshold_01: {thresh_01:.4f}")
-    #print(f"Threshold_05: {thresh_05:.4f}")
     print(f"Threshold_1: {thresh_1:.4f}")
 
     thresholds = {
     '01': thresh_01, 
-    #'05': thresh_05, 
     '1' : thresh_1
     }
 
